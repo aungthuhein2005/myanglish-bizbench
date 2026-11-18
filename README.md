@@ -3,6 +3,8 @@
 **Can general-purpose LLMs understand Myanglish customer messages?** A benchmark, an evaluation
 of six LLMs, and a small app that puts the results to use.
 
+🤗 Dataset: [aungthuhein-dev/myanglish-bizbench](https://huggingface.co/datasets/aungthuhein-dev/myanglish-bizbench) · 📄 [Final report](reports/final_report.md) · 🛠 [Analyzer app](app/README.md)
+
 Myanglish is Burmese written in Latin letters, often mixed with English. It's how many people
 in Myanmar message online shops:
 
