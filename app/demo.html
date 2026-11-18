@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Myanglish Message Analyzer</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#e2e2dc;
+          --accent:#2457c5; --auto:#1f7a4d; --human:#b5462c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#171716; --card:#22221f; --ink:#ecece6; --muted:#a3a39b; --line:#3a3a35;
+            --accent:#7aa2f7; --auto:#5cc38c; --human:#f08c6e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  p.sub { color:var(--muted); margin:0 0 24px; }
+  label { display:block; font-weight:600; margin:16px 0 6px; }
+  textarea, input { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px;
+                    background:var(--card); color:var(--ink); font:inherit; }
+  textarea { min-height:84px; resize:vertical; }
+  .examples { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .examples button { border:1px solid var(--line); background:var(--card); color:var(--muted);
+                     border-radius:999px; padding:4px 12px; font-size:.85rem; cursor:pointer; }
+  button.go { margin-top:16px; background:var(--accent); color:#fff; border:0; border-radius:8px;
+              padding:10px 20px; font:inherit; font-weight:600; cursor:pointer; }
+  button.go:disabled { opacity:.6; cursor:wait; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px;
+          margin-top:24px; }
+  .route { display:inline-block; font-weight:700; padding:2px 10px; border-radius:6px;
+           border:1.5px solid currentColor; }
+  .route.auto { color:var(--auto); } .route.human { color:var(--human); }
+  .tags span { display:inline-block; background:var(--bg); border:1px solid var(--line);
+               border-radius:6px; padding:2px 8px; margin:2px 4px 2px 0; font-family:ui-monospace,monospace;
+               font-size:.9rem; }
+  dl { display:grid; grid-template-columns:max-content 1fr; gap:6px 16px; margin:12px 0 0; }
+  dt { color:var(--muted); } dd { margin:0; }
+  .meta { color:var(--muted); font-size:.85rem; margin-top:16px; }
+  .err { color:var(--human); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Myanglish Message Analyzer</h1>
+  <p class="sub">Understands customer messages written in Myanglish for online shops. Built on the
+    Myanglish-BizBench results.</p>
+
+  <label for="msg">Customer message</label>
+  <textarea id="msg" placeholder="e.g. sis black L size 1 khu yuu mal, yankin ko deli kha bl lout lal"></textarea>
+  <div class="examples" id="examples"></div>
+
+  <label for="ctx">Earlier conversation (optional)</label>
+  <input id="ctx" placeholder="e.g. Customer ordered a handbag on Monday">
+
+  <button class="go" id="go">Analyze</button>
+  <div id="out"></div>
+</main>
+<script>
+const EXAMPLES = [
+  "sis black L size 1 khu yuu mal, yankin ko deli kha bl lout lal",
+  "kbz pay lo pay loh ya ma lr",
+  "yout pyi lar",
+  "pic htae ka lo ma hok buu, refund pyan chin tl",
+];
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+for (const ex of EXAMPLES) {
+  const b = document.createElement("button");
+  b.textContent = ex; b.onclick = () => { $("msg").value = ex; $("msg").focus(); };
+  $("examples").appendChild(b);
+}
+async function run() {
+  const message = $("msg").value.trim();
+  if (!message) return;
+  $("go").disabled = true; $("out").innerHTML = '<div class="card">Analyzing…</div>';
+  try {
+    const r = await fetch("/api/analyze", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({message, context: $("ctx").value.trim() || null})});
+    const a = await r.json();
+    if (!r.ok) throw new Error(a.error || r.status);
+    const ents = Object.entries(a.entities).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${v.map(esc).join(", ")}</dd>`).join("");
+    $("out").innerHTML = `<div class="card">
+      <span class="route ${a.route}">${a.route === "auto" ? "Auto-reply OK" : "Send to a person"}</span>
+      ${a.reasons.length ? `<span class="meta"> — ${a.reasons.map(esc).join("; ")}</span>` : ""}
+      <dl>
+        <dt>Intents</dt><dd class="tags">${a.intents.map(i => `<span>${esc(i)}</span>`).join("") || "—"}</dd>
+        ${ents || "<dt>Entities</dt><dd>—</dd>"}
+        <dt>Ask customer for</dt><dd>${a.missing_info.map(esc).join("; ") || "nothing"}</dd>
+      </dl>
+      ${a.error ? `<p class="err">${esc(a.error)}</p>` : ""}
+      <div class="meta">${esc(a.model)} · ${a.latency_s} s · ${a.input_tokens + a.output_tokens} tokens</div>
+    </div>`;
+  } catch (e) {
+    $("out").innerHTML = `<div class="card err">Request failed: ${esc(e.message)}</div>`;
+  } finally { $("go").disabled = false; }
+}
+$("go").onclick = run;
+$("msg").addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) run(); });
+</script>
+</body>
+</html>

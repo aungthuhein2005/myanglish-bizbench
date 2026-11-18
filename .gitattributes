@@ -1,0 +1,7 @@
+# Keep line endings as LF everywhere, and store frozen data and results byte-for-byte so
+# their SHA-256 checksums match on every platform.
+* text=auto eol=lf
+data/** -text
+results/** -text
+SHA256SUMS.txt -text
+*.png binary

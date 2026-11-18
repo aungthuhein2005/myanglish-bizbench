@@ -1,0 +1,338 @@
+
+[
+  {
+    "text": "price lay pyaw pya par oo",
+    "normalized_burmese": "ဈေးလေး ပြောပြပါဦး။",
+    "english_meaning": "Could you tell me the price?",
+    "intents": ["price_inquiry"],
+    "entities": {},
+    "writing_style": "myanglish_english",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "di har hanat thaung kyaw lar,tit thaung kyaw lar shint",
+    "normalized_burmese": "ဒီဟာ နှစ်သောင်းကျော်လား၊ တစ်သောင်းကျော်လားရှင့်။",
+    "english_meaning": "Is this over 20,000 or over 10,000 kyats?",
+    "intents": ["price_inquiry"],
+    "entities": {
+      "price_amounts": [20000, 10000],
+      "currency": "MMK"
+    },
+    "writing_style": "burmese_unicode",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "sis di ate ka leather ah sitt larr faux larr yae waterproof yaw phyit larr",
+    "normalized_burmese": "စစ် ဒီအိတ်က သားရေအစစ်လား၊ သားရေတုလား။ ရေစိုခံလား။",
+    "english_meaning": "Sis, is this bag genuine leather or faux leather? Is it waterproof too?",
+    "intents": ["product_inquiry"],
+    "entities": {
+      "product": "bag",
+      "materials": ["genuine leather", "faux leather"],
+      "feature": "waterproof"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "black color shi thay lar",
+    "normalized_burmese": "အနက်ရောင် ရှိသေးလား။",
+    "english_meaning": "Is black still available?",
+    "intents": ["stock_availability"],
+    "entities": {
+      "color": "black"
+    },
+    "writing_style": "myanglish_english",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ah sneaker lay size 38 kone pyi lar 39 so lal ya tl naw",
+    "normalized_burmese": "အဲဒီ စနီကာဖိနပ်လေး ဆိုဒ် ၃၈ ကုန်ပြီလား။ ၃၉ ဆိုလည်း ရတယ်နော်။",
+    "english_meaning": "Is that sneaker sold out in size 38? Size 39 would also be okay.",
+    "intents": ["stock_availability"],
+    "entities": {
+      "product": "sneakers",
+      "preferred_size": "38",
+      "alternative_size": "39"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ok sis white tit khu yuu mal order tin pay delivery fee ah pr ah win total bl lout kya ma lal",
+    "normalized_burmese": "အိုကေ စစ်၊ အဖြူရောင် တစ်ခုယူမယ်။ အော်ဒါတင်ပေးပါ။ ပို့ခအပါအဝင် စုစုပေါင်း ဘယ်လောက်ကျမလဲ။",
+    "english_meaning": "Okay sis, I'll take one in white. Please place my order. How much is the total including delivery?",
+    "intents": ["place_order", "delivery_inquiry", "price_inquiry"],
+    "entities": {
+      "color": "white",
+      "quantity": 1,
+      "fee_type": "delivery_fee"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "hnit khu yuu ml naw",
+    "normalized_burmese": "နှစ်ခု ယူမယ်နော်။",
+    "english_meaning": "I'll take two.",
+    "intents": ["place_order"],
+    "entities": {
+      "quantity": 2
+    },
+    "writing_style": "myanglish",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "mandalay ko deli poh pay lar sis poh yin bl hna yat lout kyar ma lal",
+    "normalized_burmese": "မန္တလေးကို ပစ္စည်းပို့ပေးလား စစ်။ ပို့ရင် ဘယ်နှရက်လောက် ကြာမလဲ။",
+    "english_meaning": "Sis, do you deliver to Mandalay? If so, how many days will it take?",
+    "intents": ["delivery_inquiry"],
+    "entities": {
+      "delivery_city": "Mandalay"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ma nay ka order tin htar tar di nae yout mal loh pyaw htar pay mae  khu hti ma yout thay buu tracking lal ma poh pay buu bal lo phyit nay tar lal",
+    "normalized_burmese": "မနေ့က အော်ဒါတင်ထားတာ ဒီနေ့ရောက်မယ်လို့ ပြောထားပေမယ့် အခုထိ မရောက်သေးဘူး။ ပစ္စည်းခြေရာခံအချက်အလက်လည်း မပို့ပေးဘူး။ ဘယ်လိုဖြစ်နေတာလဲ။",
+    "english_meaning": "I ordered yesterday and was told it would arrive today, but it still hasn't arrived. You haven't sent tracking information either. What's going on?",
+    "intents": ["delivery_inquiry", "customer_complaint"],
+    "entities": {
+      "order_date_relative": "yesterday",
+      "promised_delivery_relative": "today",
+      "tracking_status": "not_provided"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "kbzpay nae ngway chay loh ya lr cod ma ya buu lr",
+    "normalized_burmese": "KBZPay နဲ့ ငွေချေလို့ရလား။ ပစ္စည်းရောက်မှ ငွေချေလို့ မရဘူးလား။",
+    "english_meaning": "Can I pay with KBZPay? Isn't cash on delivery available?",
+    "intents": ["payment_inquiry"],
+    "entities": {
+      "payment_methods": ["KBZPay", "cash_on_delivery"]
+    },
+    "writing_style": "myanglish_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ngway hlwal pyii pyi naw ngway hlwal htar tae screenshot poh htar tal check pay pr om",
+    "normalized_burmese": "ငွေလွှဲပြီးပြီနော်။ ငွေလွှဲထားတဲ့ စခရင်ရှော့ ပို့ထားတယ်။ စစ်ပေးပါဦး။",
+    "english_meaning": "I've already transferred the money and sent the screenshot. Please check it.",
+    "intents": ["payment_inquiry"],
+    "entities": {
+      "payment_status": "transferred",
+      "payment_proof": "screenshot"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "sis order cancel chin loh ma poh ya thay yin cancel pay pr naw",
+    "normalized_burmese": "စစ်၊ အော်ဒါဖျက်ချင်လို့ပါ။ မပို့ရသေးရင် ဖျက်ပေးပါနော်။",
+    "english_meaning": "Sis, I'd like to cancel my order. Please cancel it if it hasn't been shipped yet.",
+    "intents": ["order_cancellation"],
+    "entities": {
+      "cancellation_condition": "not_yet_shipped"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ho har ma yuu tot bu naw d har pl yuu tot mal",
+    "normalized_burmese": "ဟိုဟာ မယူတော့ဘူးနော်။ ဒီဟာပဲ ယူတော့မယ်။",
+    "english_meaning": "I don't want that one anymore. I'll take this one instead.",
+    "intents": ["order_cancellation", "place_order"],
+    "entities": {},
+    "writing_style": "burmese_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": true
+  },
+  {
+    "text": "size thay nay loh exchange loh ya ma lar tag ma phyot ya thay buu",
+    "normalized_burmese": "ဆိုဒ်သေးနေလို့ လဲလို့ရမလား။ တံဆိပ်လည်း မဖြုတ်ရသေးဘူး။",
+    "english_meaning": "The size is too small. Can I exchange it? I haven't removed the tag yet.",
+    "intents": ["refund_exchange"],
+    "entities": {
+      "issue": "size_too_small",
+      "requested_resolution": "exchange",
+      "tag_status": "attached"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "pic htae ka lo ma hok buu naw color ka taw taw kwar tl quality lal ma kaung buu refund pyan lo chin tl bl lo lote ya ma lal",
+    "normalized_burmese": "ပုံထဲကလို မဟုတ်ဘူးနော်။ အရောင်က တော်တော်ကွာတယ်။ အရည်အသွေးလည်း မကောင်းဘူး။ ငွေပြန်အမ်းစေချင်တယ်။ ဘယ်လိုလုပ်ရမလဲ။",
+    "english_meaning": "It doesn't look like the picture. The color is quite different and the quality is poor. I want a refund. What should I do?",
+    "intents": ["customer_complaint", "refund_exchange"],
+    "entities": {
+      "issues": ["color_mismatch", "poor_quality"],
+      "requested_resolution": "refund"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "a ma toh reply pyan tar kyat loon tal naw thone khar taung mayy htar tar seen pl htar tal",
+    "normalized_burmese": "အစ်မတို့ စာပြန်တာ ကြာလွန်းတယ်နော်။ သုံးခါတောင် မေးထားတာ စာဖတ်ပြီးပဲ ထားတယ်။",
+    "english_meaning": "You take way too long to reply. I've asked three times and you just keep leaving my messages on seen.",
+    "intents": ["customer_complaint"],
+    "entities": {
+      "issue": "slow_response",
+      "follow_up_count": 3
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "d nae promo shi thay lar 2 khu yuu yin discount po ya ml lar",
+    "normalized_burmese": "ဒီနေ့ ပရိုမိုးရှင်း ရှိသေးလား။ နှစ်ခုယူရင် လျှော့ဈေး ပိုရမလား။",
+    "english_meaning": "Is there still a promotion today? Will I get a bigger discount if I buy two?",
+    "intents": ["discount_inquiry"],
+    "entities": {
+      "quantity": 2,
+      "promotion_period": "today"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "last price bl lout hti shrot pay naing lal sis budget ka thone thaung pl thone naing loh par",
+    "normalized_burmese": "စစ်၊ နောက်ဆုံးဈေး ဘယ်လောက်အထိ လျှော့ပေးနိုင်လဲ။ သုံးသောင်းပဲ သုံးနိုင်လို့ပါ။",
+    "english_meaning": "Sis, what's the lowest price you can offer? My budget is only 30,000 kyats.",
+    "intents": ["discount_inquiry", "price_inquiry"],
+    "entities": {
+      "budget": 30000,
+      "currency": "MMK"
+    },
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "medium",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "hi sis Mingalarpar shin",
+    "normalized_burmese": "ဟိုင်း စစ်၊ မင်္ဂလာပါရှင့်။",
+    "english_meaning": "Hi sis, hello!",
+    "intents": ["greeting"],
+    "entities": {},
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ma ma yay online shi lar",
+    "normalized_burmese": "မမရေ အွန်လိုင်းရှိလား။",
+    "english_meaning": "Hey sis, are you online?",
+    "intents": ["greeting"],
+    "entities": {},
+    "writing_style": "mixed_burmese_unicode_english",
+    "difficulty": "easy",
+    "context": null,
+    "requires_clarification": false
+  },
+  {
+    "text": "ah dar lay ya thay lar",
+    "normalized_burmese": "အဲဒါလေး ရသေးလား။",
+    "english_meaning": "Is that one still available?",
+    "intents": ["stock_availability"],
+    "entities": {},
+    "writing_style": "burmese_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": true
+  },
+  {
+    "text": "a kyin ka har lay yaw sis",
+    "normalized_burmese": "အရင်ကဟာလေးရော စစ်။",
+    "english_meaning": "What about the one from before, sis?",
+    "intents": ["unknown_intent"],
+    "entities": {},
+    "writing_style": "mixed_myanglish_unicode_english",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": true
+  },
+  {
+    "text": "sis ma nae ka pyaw tae har ka ah khu ma ya tot buu loh pyaw tar larr dar hma ma hok price pyaung thwar tar larr",
+    "normalized_burmese": "စစ်၊ မနေ့က ပြောတဲ့ဟာက အခု မရတော့ဘူးလို့ ပြောတာလား၊ ဒါမှမဟုတ် ဈေးပြောင်းသွားတာလား။",
+    "english_meaning": "Sis, are you saying the item we discussed yesterday is no longer available, or has its price changed?",
+    "intents": ["stock_availability", "price_inquiry"],
+    "entities": {
+      "reference_time": "yesterday"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": true
+  },
+  {
+    "text": "yout pyi lar",
+    "normalized_burmese": "ရောက်ပြီလား။",
+    "english_meaning": "Has it arrived yet?",
+    "intents": ["unknown_intent"],
+    "entities": {},
+    "writing_style": "burmese_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": true
+  },
+  {
+    "text": "sis d phone case lay iPhone 13 nae fit pyit lar 14 ah twat pl so yin ma yuu tok buu naw iphone 13 ah twat shi yin price nae deli fees ko tat khar tale pyaw pay par",
+    "normalized_burmese": "စစ်၊ ဒီဖုန်းကာဗာလေးက iPhone 13 နဲ့ ကိုက်လား။ iPhone 14 အတွက်ပဲဆိုရင် မယူတော့ဘူးနော်။ iPhone 13 အတွက် ရှိရင် ဈေးနဲ့ ပို့ခကို တစ်ခါတည်း ပြောပေးပါ။",
+    "english_meaning": "Sis, does this phone case fit an iPhone 13? If it's only for the iPhone 14, I won't buy it. If you have one for the iPhone 13, please tell me the price and delivery fee together.",
+    "intents": [
+      "product_inquiry",
+      "stock_availability",
+      "price_inquiry",
+      "delivery_inquiry"
+    ],
+    "entities": {
+      "product": "phone_case",
+      "required_compatible_model": "iPhone 13",
+      "excluded_compatible_model": "iPhone 14",
+      "fee_type": "delivery_fee"
+    },
+    "writing_style": "mixed_myanglish_english_unicode",
+    "difficulty": "hard",
+    "context": null,
+    "requires_clarification": false
+  }
+]

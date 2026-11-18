@@ -1,0 +1,351 @@
+[
+{
+"text": "hi sis d hr lay bl lout ll",
+"normalized_burmese": "Hi sis ဒီဟာလေး ဘယ်လောက်လဲ",
+"english_meaning": "Hi sis, how much is this item?",
+"intents": ["greeting", "price_inquiry"],
+"entities": {
+"honorific": "sis",
+"item_reference": "d hr lay"
+},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": "Customer likely replied to a product photo or post.",
+"requires_clarification": true
+},
+{
+"text": "instock lr bro",
+"normalized_burmese": "Instock လား bro",
+"english_meaning": "Is it in stock, bro?",
+"intents": ["stock_availability"],
+"entities": {
+"honorific": "bro"
+},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "ah thar ka a yan parr lar ma thi buu out khan ma par yin pout hmar so loh",
+"normalized_burmese": "အသားက အရမ်းပါးလားမသိဘူး အောက်ခံမပါရင် ပေါက်မှာစိုးလို့",
+"english_meaning": "I wonder if the fabric is too thin? I'm worried it will be see-through without a lining.",
+"intents": ["product_inquiry"],
+"entities": {
+"attribute": "fabric thickness and transparency"
+},
+"writing_style": "burmese_unicode",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "black L size 1 htal u ml ygn yankin ko deli kha bl lout ll",
+"normalized_burmese": "Black L size ၁ ထည် ယူမယ် မ ရန်ကုန် ရန်ကင်းကို deli ခ ဘယ်လောက်လဲ",
+"english_meaning": "I'll take 1 black size L, sis. How much is the delivery fee to Yankin, Yangon?",
+"intents": ["place_order", "delivery_inquiry"],
+"entities": {
+"color": "black",
+"size": "L",
+"quantity": 1,
+"location": "Yankin, Yangon"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "kpay nae hlwel ya lr cod ma ya vu lr",
+"normalized_burmese": "KPay နဲ့ လွှဲရလား COD မရဘူးလား",
+"english_meaning": "Can I transfer via KPay? Is Cash on Delivery not available?",
+"intents": ["payment_inquiry"],
+"entities": {
+"payment_methods": ["KPay", "COD"]
+},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "2 khu u yin discount lay bar lay ma shi bu lr admin chit",
+"normalized_burmese": "၂ ခု ယူရင် discount လေး ဘာလေး မရှိဘူးလား admin ချစ်",
+"english_meaning": "If I buy 2 items, isn't there any small discount, dear admin?",
+"intents": ["discount_inquiry"],
+"entities": {
+"quantity": 2
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "ma yay sry pr naw m nae ka hmar htr tae order lay cancel chin lo pr a may ka ma wal khine tot loh",
+"normalized_burmese": "မရေ sorry ပါနော် မနေ့က မှာထားတဲ့ order လေး cancel ချင်လို့ပါ အမေက မဝယ်ခိုင်းတော့လို့",
+"english_meaning": "Hey sis, sorry! I want to cancel the order I placed yesterday because my mom told me not to buy it anymore.",
+"intents": ["order_cancellation"],
+"entities": {
+"order_date": "yesterday"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "size ma taw lo pyn ll loh ya ml lr d mha wut kyi tr kyat nay lo",
+"normalized_burmese": "Size မတော်လို့ ပြန်လဲလို့ ရမလား ဒီမှာ ဝတ်ကြည့်တာ ကျပ်နေလို့",
+"english_meaning": "Can I exchange it because the size doesn't fit? When I tried it on here, it's too tight.",
+"intents": ["refund_and_exchange"],
+"entities": {
+"issue": "size too tight"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "hello pyit see ka ah khu hti ma yout thay buu lar3 yatt shi nay pyi deli ph ll ma kaing bu page ka ll rp ma pyan buu taw taw sate pyat poh kaung tl",
+"normalized_burmese": "ဟယ်လို အခုထိ ပစ္စည်းက မရောက်သေးဘူးလား ၃ ရက်ရှိနေပြီ deli ဖုန်းလည်း မကိုင်ဘူး page ကလည်း reply မပြန်ဘူး တော်တော်စိတ်ပျက်ဖို့ကောင်းတယ်",
+"english_meaning": "Hello, hasn't the item arrived yet? It's been 3 days already. The delivery rider isn't answering the phone and the page isn't replying either. It's really disappointing.",
+"intents": ["customer_complaint", "delivery_inquiry"],
+"entities": {
+"delay_duration": "3 days"
+},
+"writing_style": "mixed_unicode_myanglish",
+"difficulty": "hard",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "cb",
+"normalized_burmese": "Chatbox",
+"english_meaning": "Check chatbox / DM.",
+"intents": ["unknown_intent"],
+"entities": {},
+"writing_style": "english_slang",
+"difficulty": "hard",
+"context": "Common shorthand sent without context expecting the shop to initiate.",
+"requires_clarification": true
+},
+{
+"text": "oily skin nae tae tae serum shi lr ma phyu tae hr myo lo chin tr",
+"normalized_burmese": "Oily skin နဲ့ တည့်တဲ့ serum ရှိလား မဖြူတဲ့ ဟာမျိုး လိုချင်တာ",
+"english_meaning": "Do you have a serum suitable for oily skin? I want the kind that doesn't leave a white cast.",
+"intents": ["product_inquiry", "stock_availability"],
+"entities": {
+"product_type": "serum",
+"skin_type": "oily skin",
+"preference": "no white cast"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "mdy ko car gate ka nay tin pay lr bar gate nae ll",
+"normalized_burmese": "မန္တလေးကို ကားဂိတ်ကနေ တင်ပေးလား ဘာဂိတ်နဲ့လဲ",
+"english_meaning": "Do you ship to Mandalay via highway bus terminal? Which bus line do you use?",
+"intents": ["delivery_inquiry"],
+"entities": {
+"destination": "Mandalay",
+"shipping_method": "highway bus gate"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "order tin ml naw white 1 pink 2 / name - Su Su/ phone - 09791234567 /hlaldan",
+"normalized_burmese": "Order တင်မယ်နော် White ၁၊ Pink ၂ / နာမည် - စုစု / ဖုန်း 09791234567 / လှည်းတန်း",
+"english_meaning": "I'll place an order: 1 white, 2 pink. Name: Su Su, Phone: 09791234567, Location: Hledan.",
+"intents": ["place_order"],
+"entities": {
+"items": [
+{
+"color": "white",
+"quantity": 1
+},
+{
+"color": "pink",
+"quantity": 2
+}
+],
+"customer_name": "Su Su",
+"phone": "09791234567",
+"location": "Hlaldan"
+},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "pyit see phwint kyi lite tar ah phone ka kwal nay tal bro bal lo lote pay hmar lal pite san pyan ann hmar lar ah thit pyan lal pay hmar lar ",
+"normalized_burmese": "ပစ္စည်းဖွင့်ကြည့်လိုက်တာ အဖုံးက ကွဲနေတယ် bro ဘယ်လိုလုပ်ပေးမှာလဲ ပိုက်ဆံပြန်အမ်းမှာလား အသစ်ပြန်လဲပေးမှာလား",
+"english_meaning": "When I opened the package, the lid was broken, bro. What are you going to do about it? Will you refund the money or replace it with a new one?",
+"intents": ["customer_complaint", "refund_and_exchange"],
+"entities": {
+"defect": "broken lid"
+},
+"writing_style": "mixed_unicode_myanglish",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "mingalar pr ma zayy mayy chin lo",
+"normalized_burmese": "မင်္ဂလာပါ မ ဈေးမေးချင်လို့",
+"english_meaning": "Hello sis, I want to ask about the price.",
+"intents": ["greeting", "price_inquiry"],
+"entities": {
+"honorific": "ma"
+},
+"writing_style": "myanglish",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "42 size shi thay lr pre order ma hote bu naw ready shi mha u mhr price pr pyaw pr",
+"normalized_burmese": "42 size ရှိသေးလား Pre-order မဟုတ်ဘူးနော် Ready ရှိမှ ယူမှာ Price ပါ ပြောပါ",
+"english_meaning": "Is size 42 still available? Not pre-order, okay? I'll only buy if it's ready in stock. Tell me the price too.",
+"intents": ["stock_availability", "price_inquiry"],
+"entities": {
+"size": "42",
+"stock_type": "ready stock"
+},
+"writing_style": "myanglish_english",
+"difficulty": "hard",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "a paw ka hr",
+"normalized_burmese": "အပေါ်ကဟာ",
+"english_meaning": "The one above.",
+"intents": ["unknown_intent"],
+"entities": {
+"reference": "above item"
+},
+"writing_style": "myanglish",
+"difficulty": "hard",
+"context": "Customer points to an earlier post/message without stating whether they want price, stock, or to order.",
+"requires_clarification": true
+},
+{
+"text": "wave nae phyaung pyii pyi naw ss poh htar talkyi pyi order confirm pay pr",
+"normalized_burmese": "Wave နဲ့ ဖြောင့်ပြီးပြီနော် SS ပို့ထားတယ် ကြည့်ပြီး order confirm ပေးပါ",
+"english_meaning": "I've already transferred via Wave, okay? I sent the screenshot, please check it and confirm my order.",
+"intents": ["payment_inquiry", "place_order"],
+"entities": {
+"payment_method": "WavePay",
+"attachment": "screenshot"
+},
+"writing_style": "myanglish_english",
+"difficulty": "hard",
+"context": "Uses Gen-Z slang 'phyaung' (ဖြောင့်) meaning to pay/settle a bill.",
+"requires_clarification": false
+},
+{
+"text": " di set lay ka 10 thaung kyaw taung lar promo bar nyar ma shi tok buu lar bar tway par lal ",
+"normalized_burmese": "ဒီ set လေးက ၁၀ သောင်းကျော်တောင်လား promo ဘာညာ မရှိတော့ဘူးလား ဘာတွေပါလဲ",
+"english_meaning": "Is this set really over 100,000 kyats? Are there no promos or anything anymore? What's included in it?",
+"intents": ["price_inquiry", "discount_inquiry", "product_inquiry"],
+"entities": {
+"mentioned_price": "over 100,000 MMK",
+"item_type": "set"
+},
+"writing_style": "mixed_unicode_myanglish",
+"difficulty": "hard",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "m nae ka hmar htr tae htae ka blue lay ma u tot buu naw red ta khu pl poh pay pr",
+"normalized_burmese": "မနေ့က မှာထားတဲ့ထဲက blue လေး မယူတော့ဘူးနော် red တစ်ခုပဲ ပို့ပေးပါ",
+"english_meaning": "From what I ordered yesterday, I won't take the blue one anymore, okay? Just send the red one.",
+"intents": ["order_cancellation", "place_order"],
+"entities": {
+"cancelled_color": "blue",
+"retained_color": "red",
+"retained_quantity": 1
+},
+"writing_style": "myanglish_english",
+"difficulty": "hard",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "d nay hmar yin m nat phyan yout lr bday gift pay ma loh",
+"normalized_burmese": "ဒီနေ့ မှာရင် မနက်ဖြန် ရောက်လား birthday gift ပေးမလို့",
+"english_meaning": "If I order today, will it arrive tomorrow? I'm going to give it as a birthday gift.",
+"intents": ["delivery_inquiry"],
+"entities": {
+"order_day": "today",
+"expected_arrival": "tomorrow",
+"purpose": "birthday gift"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "admin yay hmar tr ka M size poh lite tr ka XL gyi",
+"normalized_burmese": "Admin ရေ မှာတာက M size ပို့လိုက်တာက XL ကြီး",
+"english_meaning": "Hey admin, what I ordered was size M, and what you sent is a huge XL.",
+"intents": ["customer_complaint"],
+"entities": {
+"ordered_size": "M",
+"received_size": "XL"
+},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "authentic a sit lr copy lr hmar tr ma hote pr buu naw",
+"normalized_burmese": "Authentic အစစ်လား copy လား မှားတာ မဟုတ်ပါဘူးနော်",
+"english_meaning": "Is it genuine authentic or a copy? There's no mistake, right?",
+"intents": ["product_inquiry"],
+"entities": {
+"attribute": "authenticity"
+},
+"writing_style": "myanglish_english",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+},
+{
+"text": "hello shi lr",
+"normalized_burmese": "Hello ရှိလား",
+"english_meaning": "Hello, is anyone there?",
+"intents": ["greeting"],
+"entities": {},
+"writing_style": "myanglish_english",
+"difficulty": "easy",
+"context": null,
+"requires_clarification": true
+},
+{
+"text": "pyit see ka out of stock pyit thwar so yin kyo hwal htar tae kpay ko bl tok pyan hwal pay hmar lal",
+"normalized_burmese": "ပစ္စည်းက out of stock ဖြစ်သွားပြီဆိုရင် ကြိုလွှဲထားတဲ့ KPay ကို ဘယ်တော့ပြန်လွှဲပေးမှာလဲ",
+"english_meaning": "If the item has gone out of stock, when will you transfer back the KPay payment I sent in advance?",
+"intents": ["refund_and_exchange", "payment_inquiry"],
+"entities": {
+"payment_method": "KPay",
+"reason": "out of stock"
+},
+"writing_style": "mixed_unicode_myanglish",
+"difficulty": "medium",
+"context": null,
+"requires_clarification": false
+}
+]

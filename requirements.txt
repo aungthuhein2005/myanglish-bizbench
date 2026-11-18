@@ -1,0 +1,6 @@
+anthropic>=2.6
+openai>=3.55
+google-genai>=3.5
+python-dotenv>=1.2
+requests>=2.32
+matplotlib>=3.10

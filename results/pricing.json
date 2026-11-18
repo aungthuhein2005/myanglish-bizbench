@@ -1,0 +1,30 @@
+{
+  "fetched_at": "2026-11-18T16:10:30+00:00",
+  "source": "https://openrouter.ai/api/v1/models",
+  "prices": {
+    "openai/gpt-6.2-sol": {
+      "input": 2e-06,
+      "output": 1e-05
+    },
+    "qwen/qwen4-max": {
+      "input": 1.425e-06,
+      "output": 4.275e-06
+    },
+    "google/gemini-4-carbon": {
+      "input": 2e-06,
+      "output": 1e-05
+    },
+    "anthropic/claude-opus-5.5": {
+      "input": 4e-06,
+      "output": 2e-05
+    },
+    "deepseek/deepseek-v4-pro": {
+      "input": 9e-07,
+      "output": 1.5e-06
+    },
+    "google/gemma-4-31b-it": {
+      "input": 2e-07,
+      "output": 4e-07
+    }
+  }
+}

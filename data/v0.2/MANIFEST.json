@@ -1,0 +1,18 @@
+{
+  "name": "Myanglish-BizBench",
+  "version": "v0.2",
+  "split": "test",
+  "file": "test.jsonl",
+  "format": "jsonl",
+  "frozen_on": "2026-11-19",
+  "samples": 100,
+  "intent_annotations": 148,
+  "source_models": {
+    "chatgpt": 25,
+    "claude": 25,
+    "deepseek": 25,
+    "gemini": 25
+  },
+  "sha256": "6813b74fed4af13aa19308b17eafbca393252e5dc8067332903d6b3994c6908b",
+  "policy": "Frozen test set. Do not modify this version based on model performance, and do not use it for training or fine-tuning. Changes go into a new version."
+}
